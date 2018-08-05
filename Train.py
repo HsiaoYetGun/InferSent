@@ -121,6 +121,8 @@ def train():
                     sess.run(model._learning_rate_decay_op)
                     print_log('Learning rate change from {0:>6.4} to {1:>6.4} ...'.format(old_learning_rate, model.learning_rate), file = log)
 
+                last_dev_acc = acc_val
+
                 # show batch training information
                 time_diff = get_time_diff(start_time)
                 msg = 'Epoch : {0:>3}, Batch : {1:>8}, Train Batch Loss : {2:>6.2}, Train Batch Acc : {3:>6.2%}, Dev Loss : {4:>6.2}, Dev Acc : {5:>6.2%}, Time : {6} {7}'
