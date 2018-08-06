@@ -213,7 +213,3 @@ class InferSent(object):
             gradients, _ = tf.clip_by_global_norm(gradients, self.clip_value)
         train_op = optimizer.apply_gradients(zip(gradients, v))
         return train_op
-
-    # learning rate decay
-    def _learning_rate_decay_op(self):
-        return self.learning_rate.assign(self.learning_rate * 0.2)

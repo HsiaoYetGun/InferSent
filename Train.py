@@ -118,7 +118,7 @@ def train():
                 # learning rate decay
                 if acc_val < last_dev_acc:
                     old_learning_rate = model.learning_rate
-                    sess.run(model._learning_rate_decay_op)
+                    model.learning_rate *= 0.2
                     print_log('Learning rate change from {0:>6.4} to {1:>6.4} ...'.format(old_learning_rate, model.learning_rate), file = log)
 
                 last_dev_acc = acc_val
